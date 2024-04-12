@@ -25,8 +25,8 @@ export default function App() {
 
   // Function to extract and clean drone data from the raw data received
   const cleanDronesData = (newDroneData) => {
-    const droneDetailsData = newDroneData?.features[0]?.properties;
-    const droneGeometryData = newDroneData?.features[0]?.geometry?.coordinates;
+    const droneDetailsData = newDroneData?.properties;
+    const droneGeometryData = newDroneData?.geometry?.coordinates;
     const cleanedDroneData = {
       details: { ...droneDetailsData },
       geometry: {
@@ -55,9 +55,11 @@ export default function App() {
   // Effect to listen for new drone data messages and process them
   useEffect(() => {
     function onMessageEvent(value) {
-      const cleanedDroneData = cleanDronesData(value);
-      setDronesData((previous) => [...previous, cleanedDroneData]);
-      addToRedDrones(cleanedDroneData);
+      value?.features.forEach((value) => {
+        const cleanedDroneData = cleanDronesData(value);
+        setDronesData((previous) => [...previous, cleanedDroneData]);
+        addToRedDrones(cleanedDroneData);
+      });
     }
 
     socket.on('message', onMessageEvent);

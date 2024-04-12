@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import mapboxgl from 'mapbox-gl';
 
 import { DronePopup } from './DronePopup';
