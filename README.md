@@ -4,6 +4,8 @@
 
 This project is a front-end application built with React and Mapbox GL JS. It is designed to track and display the real-time positions and paths of drones on a map. The application highlights active drones, displays their flight paths, and provides detailed information through interactive popups.
 
+[Watch the Demo Video](https://drive.google.com/file/d/1k4ak2NNCvxadKdR5DolibBTA2JniKKgu/view?usp=drive_link)
+
 ## Features
 
 - **Real-Time Tracking**: Shows all drones currently in the sky in real-time.
